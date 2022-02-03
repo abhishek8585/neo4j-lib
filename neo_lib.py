@@ -1,7 +1,11 @@
 
+from lib2to3.pgen2 import driver
+
+
 def run_cypher(cq,limit=10):
     tran = lambda tx: tx.run(cq,limit=limit).data()
-
+    global driver
+    global neo_database
     with driver.session(database=neo_database) as session:
         results = session.write_transaction(tran)
     return results
