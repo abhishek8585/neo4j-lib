@@ -5,9 +5,8 @@ from pprint import pprint
 
 from neo4j import GraphDatabase, basic_auth
 from py2neo import Graph
-class neo_lib:
-
-    def login(self, neo_url, neo_user, neo_pwd, neo_database):
+class Neo_lib:
+    def __init__(self, neo_url, neo_user, neo_pwd, neo_database):
         self.driver = GraphDatabase.driver(neo_url, auth=basic_auth(neo_user, neo_pwd))
         self.neo_database = neo_database
         self.graph = Graph(neo_url, auth=(neo_user, neo_pwd))
