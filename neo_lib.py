@@ -19,6 +19,10 @@ class Neo_lib:
             results = session.write_transaction(tran)
         return results
 
+    def run_cypher_db(self,cq):
+        results = self.graph.run(cq).to_data_frame()
+        return results
+
     def reset_db(self):
         cq = "match (n) detach delete n"
         return self.run_cypher(cq)
