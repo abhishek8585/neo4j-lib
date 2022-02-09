@@ -33,9 +33,7 @@ class Neo_lib:
         with labelCount, relTypeCount, propertyKeyCount, nodeCount, relCount
         return labelCount, relTypeCount,propertyKeyCount, nodeCount,relCount
         """
-        res = self.run_cypher(cq)
-        for rec in res:
-            print (rec)
+        return self.run_cypher_pd(cq)
 
     def checksum(self):
         cq = """
@@ -50,21 +48,21 @@ class Neo_lib:
         cq = """
         match (n) return count(n) as count
         """
-        res = self.run_cypher(cq)
-        return res[0]['count']
+        return self.run_cypher_pd(cq)
+
 
     def get_stats_all(self):
         cq = """
             call apoc.meta.stats()
             """
-        res = self.run_cypher(cq)
-        pprint(res[0]['stats'])
+        return self.run_cypher_pd(cq)
+
 
     def schema_view(self):
         cq = "CALL db.schema.visualization()"
         print ("Run {} in Neo4j Browser to see a graphical view".format(cq))
-        res  = self.run_cypher(cq)
-        pprint(res)
+        return self.run_cypher_pd(cq)
+
 
     def print_label_count(self):
         result = {"Label": [], "Count": []}
