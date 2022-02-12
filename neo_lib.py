@@ -77,7 +77,7 @@ class Neo_lib:
 
     def relationship_count(self):
         result = {"From":[], "Relationship": [], "To":[], "Count": []}
-        x = nl.schema_view()
+        x = self.schema_view()
         y = x[0]['relationships']
         for i in y:
             rel = i[1]
@@ -92,7 +92,7 @@ class Neo_lib:
 
     def drop_constraints(self):
         cq = "SHOW CONSTRAINTS"
-        x = nl.run_cypher(cq)
+        x = self.run_cypher(cq)
         for c in x:
             cq = "drop constraint " + c["name"]
             print("Dropping Constraint ", c["name"])
