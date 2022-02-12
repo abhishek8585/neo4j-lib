@@ -1,4 +1,3 @@
-
 from contextlib import nullcontext
 import pandas as pd
 from pprint import pprint
@@ -24,8 +23,10 @@ class Neo_lib:
         return results
 
     def reset_db(self):
+        self.drop_constraints()
         cq = "match (n) detach delete n"
         return self.run_cypher(cq)
+        
 
     def get_stats(self):
         cq = """
@@ -44,7 +45,7 @@ class Neo_lib:
         res = self.run_cypher(cq)
         return res[0]['checksum']
 
-    def nodeCount(self):
+    def node_count(self):
         cq = """
         match (n) return count(n) as count
         """
@@ -61,10 +62,10 @@ class Neo_lib:
     def schema_view(self):
         cq = "CALL db.schema.visualization()"
         print ("Run {} in Neo4j Browser to see a graphical view".format(cq))
-        return self.run_cypher_pd(cq)
+        return self.run_cypher(cq)
 
 
-    def print_label_count(self):
+    def label_count(self):
         result = {"Label": [], "Count": []}
         for label in self.graph.run("CALL db.labels()").to_series():
             query = f"MATCH (:`{label}`) RETURN count(*) AS count"
@@ -74,3 +75,25 @@ class Neo_lib:
         nodes_df = pd.DataFrame(data=result)
         return nodes_df
 
+    def relationship_count(self):
+        result = {"From":[], "Relationship": [], "To":[], "Count": []}
+        x = nl.schema_view()
+        y = x[0]['relationships']
+        for i in y:
+            rel = i[1]
+            query = f"MATCH ()-[r:`{rel}`]-() RETURN count(r) AS count"
+            count = self.graph.run(query).to_data_frame().iloc[0]['count']
+            result["From"].append(i[0]['name'])
+            result["Relationship"].append(rel)
+            result["To"].append(i[2]['name'])
+            result["Count"].append(count)
+        rels_df = pd.DataFrame(data=result)
+        return rels_df
+
+    def drop_constraints(self):
+        cq = "SHOW CONSTRAINTS"
+        x = nl.run_cypher(cq)
+        for c in x:
+            cq = "drop constraint " + c["name"]
+            print("Dropping Constraint ", c["name"])
+            self.run_cypher(cq)
