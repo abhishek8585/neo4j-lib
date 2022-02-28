@@ -4,6 +4,11 @@ from pprint import pprint
 
 from neo4j import GraphDatabase, basic_auth
 from py2neo import Graph
+empty_cq = """
+// Your query goes here
+
+"""
+
 class Neo_lib:
     def __init__(self, neo_url, neo_user, neo_pwd, neo_database):
         self.driver = GraphDatabase.driver(neo_url, auth=basic_auth(neo_user, neo_pwd))
@@ -19,8 +24,12 @@ class Neo_lib:
         return results
 
     def run_cypher_pd(self,cq):
-        results = self.graph.run(cq).to_data_frame()
-        return results
+        if cq == empty_cq:
+            data = {'Empty CQ': "Please enter query and try again"}
+            result_pd = pd.DataFrame.from_dict(data)
+        else:
+            result_pd = self.graph.run(cq).to_data_frame()
+        return result_pd
 
     def reset_db(self):
         self.drop_constraints()
