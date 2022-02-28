@@ -25,7 +25,7 @@ class Neo_lib:
 
     def run_cypher_pd(self,cq):
         if cq == empty_cq:
-            data = {'Empty CQ': "Please enter query and try again"}
+            data = {'Empty CQ': ["Please enter query and try again"]}
             result_pd = pd.DataFrame.from_dict(data)
         else:
             result_pd = self.graph.run(cq).to_data_frame()
