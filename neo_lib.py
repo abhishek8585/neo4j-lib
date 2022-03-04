@@ -18,9 +18,12 @@ class Neo_lib:
 
 
     def run_cypher(self,cq,limit=10):
-        tran = lambda tx: tx.run(cq,limit=limit).data()
-        with self.driver.session(database=self.neo_database) as session:
-            results = session.write_transaction(tran)
+        try:
+            tran = lambda tx: tx.run(cq,limit=limit).data()
+            with self.driver.session(database=self.neo_database) as session:
+                results = session.write_transaction(tran)
+        except Exception as e:
+                results = e.message      
         return results
 
     def run_cypher_pd(self,cq):
