@@ -28,7 +28,11 @@ class Neo_lib:
             data = {'Empty CQ': ["Please enter query and try again"]}
             result_pd = pd.DataFrame.from_dict(data)
         else:
-            result_pd = self.graph.run(cq).to_data_frame()
+            try:
+                result_pd = self.graph.run(cq).to_data_frame()
+            except Exception as e:
+                data = {'Message':[ e.message]}
+                result_pd = pd.DataFrame.from_dict(data)
         return result_pd
 
     def reset_db(self):
