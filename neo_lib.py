@@ -26,13 +26,13 @@ class Neo_lib:
                 results = e.message      
         return results
 
-    def run_cypher_pd(self,cq):
+    def run_cypher_pd(self,cq,parameters=None):
         if cq == empty_cq:
             data = {'Empty CQ': ["Please enter query and try again"]}
             result_pd = pd.DataFrame.from_dict(data)
         else:
             try:
-                result_pd = self.graph.run(cq).to_data_frame()
+                result_pd = self.graph.run(cq,parameters).to_data_frame()
             except Exception as e:
                 data = {'Message':[ e.message]}
                 result_pd = pd.DataFrame.from_dict(data)
