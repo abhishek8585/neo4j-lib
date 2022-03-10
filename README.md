@@ -1,8 +1,8 @@
 # neo4j-lib
 
-This [Python](https://www.python.org/) module makes it easy to run Neo4j [Cypher](https://neo4j.com/developer/cypher/) queries in a [Jupyter](https://jupyter.org/) Notebook, which is ideal for students learning the Cypher query language.
+This Python module makes it easy to run Neo4j [Cypher](https://neo4j.com/developer/cypher/) queries in a [Jupyter](https://jupyter.org/) Notebook, which is ideal for students learning the Cypher query language.
 
-** Index **
+**Index**
 
 - [Usage](#usage)
 - [Example](#example)
@@ -12,7 +12,7 @@ This [Python](https://www.python.org/) module makes it easy to run Neo4j [Cypher
 
 ## Usage
 
-The `neo4j_lib` module is a thin wrapper for the [py2neo](https://pypi.org/project/py2neo/) and [neo4j-driver](https://pypi.org/project/neo4j-driver/) packages. It enables you to write Cypher queries in a Jupyter notebook, which provides many advantages, such as:
+This `neo4j_lib` module is a thin wrapper for the [py2neo](https://pypi.org/project/py2neo/) and [neo4j-driver](https://pypi.org/project/neo4j-driver/) packages. It enables you to write Cypher queries in a Jupyter notebook, which provides many advantages, such as:
 
 - Experimenting with different query variations.
 - Saving your work.
@@ -61,7 +61,7 @@ df
 
 ## License
 
-Copyright &#169; 2021 [Venkatesh Tadinada](venkat@solivar.com)
+Copyright &#169; 2022 [Venkatesh Tadinada](venkat@solivar.com)
 
 Licensed under the [Apache License, Version 2.0](./LICENSE) (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
