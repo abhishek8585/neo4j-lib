@@ -9,7 +9,7 @@ empty_cq = """
 
 """
 '''
-This is a neo4j library
+This is a neo4j library 1.0
 '''
 
 class Neo_lib:
