@@ -8,6 +8,9 @@ empty_cq = """
 // Your query goes here
 
 """
+'''
+This is a neo4j library
+'''
 
 class Neo_lib:
     def __init__(self, neo_url, neo_user, neo_pwd, neo_database):
