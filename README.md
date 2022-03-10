@@ -4,9 +4,9 @@ This [Python](https://www.python.org/) module makes it easy to run Neo4j [Cypher
 
 ** Index **
 
-* [Usage](#usage)
-* [Example](#example)
-* [License](#license)
+- [Usage](#usage)
+- [Example](#example)
+- [License](#license)
 
 ---
 
@@ -14,19 +14,19 @@ This [Python](https://www.python.org/) module makes it easy to run Neo4j [Cypher
 
 The `neo4j_lib` module is a thin wrapper for the [py2neo](https://pypi.org/project/py2neo/) and [neo4j-driver](https://pypi.org/project/neo4j-driver/) packages. It enables you to write Cypher queries in a Jupyter notebook, which provides many advantages, such as:
 
-* Experimenting with different query variations.
-* Saving your work.
-* Sharing your work.
-* A teacher preparing a workbook with examples and exercises.
+- Experimenting with different query variations.
+- Saving your work.
+- Sharing your work.
+- A teacher preparing a workbook with examples and exercises.
 
 The following table suggests when Python developers might want to use the various alternatives for connecting to a [Neo4j](https://neo4j.com/) database.
 
-| Scenario  | API to use |
-|-----------|------------|
-| You want to experiment with Cypher queries and you do not care about saving your work. | [Neo4j Browser](https://neo4j.com/docs/browser-manual/current/) |
-| You are learning the Cypher language _and_ you want to use a Jupyter notebook, so that you can save your work and share your work with others. | [neo4j_lib](./) |
-| You are teaching people to use Cypher, so you want to give instructions and prepare partially completed exercises. | [neo4j_lib](./) |
-| You want a Python API for programmatic access to a Neo4j database from your Python code. | [py2neo](https://pypi.org/project/py2neo/) |
+| Scenario                                                                                                                                       | API to use                                                      |
+| ---------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| You want to experiment with Cypher queries and you do not care about saving your work.                                                         | [Neo4j Browser](https://neo4j.com/docs/browser-manual/current/) |
+| You are learning the Cypher language _and_ you want to use a Jupyter notebook, so that you can save your work and share your work with others. | [neo4j_lib](./)                                                 |
+| You are teaching people to use Cypher, so you want to give instructions and prepare partially completed exercises.                             | [neo4j_lib](./)                                                 |
+| You want a Python API for programmatic access to a Neo4j database from your Python code.                                                       | [py2neo](https://pypi.org/project/py2neo/)                      |
 
 ## Example
 
@@ -61,7 +61,7 @@ df
 
 ## License
 
-Copyright &#169; 2021 [Venkat Tadinada](venkat@solivar.com)
+Copyright &#169; 2021 [Venkatesh Tadinada](venkat@solivar.com)
 
 Licensed under the [Apache License, Version 2.0](./LICENSE) (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
